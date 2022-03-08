@@ -4,51 +4,53 @@ from time import sleep
 
 
 
-zestaw_liczb=[]
-zestaw_szesciu=[]
-wylosowane_zestawy=[]
+set_of_numbers=[]
+drawn_numbers=[]
+drawn_sets=[]
 temp=[]
 x=1
-ilosc_losowanych = 3
-ilosc_wszystkich  = 5
 
-silnia = (ilosc_wszystkich)
-
-for i in range (1,(ilosc_wszystkich+1)):
-    zestaw_liczb.append(i)
-   # print (zestaw_liczb)
+number_of_balls = int(input('Select number of balls to be drawn:'))
+size_of_cart  = int(input('Select number of balls in the cart:'))
 
 
 
-#for i in range (1,10):
-while len(wylosowane_zestawy) < (math.factorial(ilosc_wszystkich))/((math.factorial(ilosc_losowanych))*(math.factorial(ilosc_wszystkich - ilosc_losowanych))):
+for i in range (1,(size_of_cart+1)):
+    set_of_numbers.append(i)
+
+  
+
+while len(drawn_sets) < (math.factorial(size_of_cart))/((math.factorial(number_of_balls))*(math.factorial(size_of_cart - number_of_balls))):
  
     
-    for i in range (1,(ilosc_losowanych+1)):  
+    for i in range (1,(number_of_balls+1)):  
 
-        wylosowana = random.choice(zestaw_liczb)
-        zestaw_szesciu.append(wylosowana)
-        zestaw_liczb.remove(wylosowana)
-        zestaw_szesciu.sort()
+        drawn = random.choice(set_of_numbers)
+        drawn_numbers.append(drawn)
+        set_of_numbers.remove(drawn)
+        drawn_numbers.sort()
         
         
-    temp=zestaw_szesciu.copy()
-    zestaw_liczb.sort()
-    #print(x,' ',zestaw_szesciu,' pozostale: ',zestaw_liczb)
-    zestaw_szesciu.clear()
-    zestaw_liczb = zestaw_liczb + temp   
+    temp=drawn_numbers.copy()
+    set_of_numbers.sort()
+    drawn_numbers.clear()
+    set_of_numbers = set_of_numbers + temp   
     x +=1
-    if temp not in wylosowane_zestawy:
-        wylosowane_zestawy.append(temp)
-        #print (wylosowane_zestawy)
+    if temp not in drawn_sets:
+        drawn_sets.append(temp)
+        #print (drawn_sets)
     continue
-#wylosowane_zestawy.sort()    
-print ('ilosc wylosowanych zestawow: ',len(wylosowane_zestawy))
-print ('te zestawy to: ') 
+#drawn_sets.sort()    
+print ('Number of sets: ',len(drawn_sets))
+print ('Drawn sets: ') 
 z=1
-for Q in wylosowane_zestawy:
+for Q in drawn_sets:
     print (z,' :',Q)
     sleep(0.3)
-
     z+=1
-    
+
+
+
+
+
+
